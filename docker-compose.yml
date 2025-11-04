@@ -1,0 +1,16 @@
+services:
+  app:
+    image: my_project:latest
+    container_name: my_project
+    build: 
+      context: .
+      network: host
+      dockerfile: Dockerfile
+    ipc: host
+    environment:
+    - HOME=/app
+    - DATA=/app/data
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/app
